@@ -62,7 +62,7 @@
       width: 100%;
       max-width: 500px;
       flex: 1;
-      min-height: 0; /* Allows flex child to shrink properly */
+      min-height: 0;
       perspective: 1200px;
       margin-bottom: 16px;
     }
@@ -73,6 +73,7 @@
       position: relative;
       transition: transform 0.55s cubic-bezier(0.4, 0.2, 0.2, 1);
       transform-style: preserve-3d;
+      -webkit-transform-style: preserve-3d;
     }
 
     .card.is-flipped {
@@ -81,6 +82,7 @@
 
     .card-face {
       position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       backface-visibility: hidden;
@@ -92,17 +94,33 @@
       overflow: hidden;
     }
 
-    /* Front Face: Passage */
+    /* Front Face: Passage (Active by default) */
     .card-front {
       background-color: #ffffff;
       border: 1px solid #e2e8f0;
+      transform: rotateY(0deg);
+      z-index: 2;
+      pointer-events: auto;
     }
 
-    /* Back Face: Vocabulary */
+    /* Back Face: Vocabulary (Inactive until flipped) */
     .card-back {
       background-color: #0f172a;
       color: #f8fafc;
       transform: rotateY(180deg);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Swap touch/scroll priority when flipped */
+    .card.is-flipped .card-front {
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .card.is-flipped .card-back {
+      z-index: 2;
+      pointer-events: auto;
     }
 
     /* Card Top Header Strip */
@@ -139,7 +157,9 @@
       padding: 20px;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
+      touch-action: pan-y;
       flex: 1;
+      min-height: 0;
       line-height: 1.65;
     }
 
@@ -269,7 +289,7 @@
           <span class="badge">Passage</span>
           <button class="flip-trigger" onclick="flipCard()">Flip to Vocab ↻</button>
         </div>
-        <div class="card-body" id="front-body" onclick="handleCardTap(event)">
+        <div class="card-body" id="front-body">
           Loading passage...
         </div>
       </div>
@@ -280,7 +300,7 @@
           <span class="badge">Vocabulary</span>
           <button class="flip-trigger" onclick="flipCard()">Flip to Text ↻</button>
         </div>
-        <div class="card-body" id="back-body" onclick="handleCardTap(event)">
+        <div class="card-body" id="back-body">
           Loading vocabulary...
         </div>
       </div>
@@ -306,10 +326,8 @@
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
 
-    // Fetch data from external JSON file
     async function loadCards() {
       try {
-        // Cache-busting query ensures updates to data.json appear immediately
         const response = await fetch(`data.json?t=${new Date().getTime()}`);
         if (!response.ok) throw new Error('Failed to load data.json');
         flashcards = await response.json();
@@ -330,7 +348,7 @@
       setTimeout(() => {
         const item = flashcards[currentIndex];
 
-        // Build Front HTML (Context + Title + Paragraphs)
+        // Build Front HTML
         let frontHTML = '';
         if (item.context) {
           frontHTML += `<div class="passage-context">${item.context}</div>`;
@@ -346,7 +364,7 @@
         frontBody.innerHTML = frontHTML;
         frontBody.scrollTop = 0;
 
-        // Build Back HTML (Vocabulary List)
+        // Build Back HTML
         const vocabItemsHTML = item.vocabulary.map(v => `
           <li class="vocab-item">
             <span class="vocab-term">${v.term}</span>
@@ -365,13 +383,6 @@
 
     function flipCard() {
       cardElement.classList.toggle('is-flipped');
-    }
-
-    // Allows tapping the card body to flip, without interfering with text selection
-    function handleCardTap(event) {
-      if (window.getSelection().toString().length === 0) {
-        flipCard();
-      }
     }
 
     function nextCard() {
@@ -398,7 +409,6 @@
       renderCard();
     }
 
-    // Start app
     loadCards();
   </script>
 </body>
