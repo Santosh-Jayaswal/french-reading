@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>My Flashcards</title>
+  <title>French Reading Flashcards</title>
   <style>
     * {
       box-sizing: border-box;
@@ -13,59 +13,65 @@
     }
 
     body {
-      background-color: #f4f6f9;
+      background-color: #f1f5f9;
       color: #1e293b;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
-      min-height: 100dvh; /* Uses dynamic viewport height for mobile browsers */
-      padding: 20px;
-      user-select: none; /* Prevents accidental text highlighting when tapping */
+      height: 100dvh;
+      padding: 16px;
+      overflow: hidden;
     }
 
-    /* Top Counter */
+    /* Top Bar */
     .header {
       width: 100%;
-      max-width: 400px;
+      max-width: 500px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-top: 10px;
-      font-size: 0.95rem;
+      padding: 4px 4px 12px;
+      font-size: 0.9rem;
       font-weight: 600;
       color: #64748b;
     }
 
-    .shuffle-btn {
-      background: none;
+    .header-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .pill-btn {
+      background: #ffffff;
       border: 1px solid #cbd5e1;
       padding: 6px 12px;
       border-radius: 20px;
-      font-size: 0.85rem;
-      color: #475569;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #334155;
       cursor: pointer;
     }
 
-    .shuffle-btn:active {
+    .pill-btn:active {
       background-color: #e2e8f0;
     }
 
     /* 3D Card Container */
     .card-container {
       width: 100%;
-      max-width: 400px;
-      height: 55vh;
-      max-height: 450px;
-      perspective: 1000px;
-      cursor: pointer;
+      max-width: 500px;
+      flex: 1;
+      min-height: 0; /* Allows flex child to shrink properly */
+      perspective: 1200px;
+      margin-bottom: 16px;
     }
 
     .card {
       width: 100%;
       height: 100%;
       position: relative;
-      transition: transform 0.5s cubic-bezier(0.4, 0.2, 0.2, 1);
+      transition: transform 0.55s cubic-bezier(0.4, 0.2, 0.2, 1);
       transform-style: preserve-3d;
     }
 
@@ -79,80 +85,157 @@
       height: 100%;
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
-      border-radius: 24px;
+      border-radius: 22px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 30px;
-      text-align: center;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+      overflow: hidden;
     }
 
-    /* Front Side (Text) */
+    /* Front Face: Passage */
     .card-front {
       background-color: #ffffff;
       border: 1px solid #e2e8f0;
     }
 
-    /* Back Side (Vocabulary) */
+    /* Back Face: Vocabulary */
     .card-back {
-      background-color: #2563eb;
-      color: #ffffff;
+      background-color: #0f172a;
+      color: #f8fafc;
       transform: rotateY(180deg);
     }
 
-    .label {
-      position: absolute;
-      top: 20px;
-      font-size: 0.75rem;
+    /* Card Top Header Strip */
+    .card-header {
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+      flex-shrink: 0;
+    }
+
+    .badge {
+      font-size: 0.72rem;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      opacity: 0.6;
+      letter-spacing: 1.2px;
       font-weight: 700;
+      opacity: 0.7;
     }
 
-    .content-text {
-      font-size: 1.6rem;
+    .flip-trigger {
+      background: rgba(148, 163, 184, 0.15);
+      border: none;
+      color: inherit;
+      padding: 5px 11px;
+      border-radius: 12px;
+      font-size: 0.78rem;
       font-weight: 600;
-      line-height: 1.4;
-      word-wrap: break-word;
+      cursor: pointer;
     }
 
-    .tap-hint {
-      position: absolute;
-      bottom: 20px;
-      font-size: 0.8rem;
-      opacity: 0.5;
+    /* Scrollable Content Area */
+    .card-body {
+      padding: 20px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      flex: 1;
+      line-height: 1.65;
+    }
+
+    /* Passage Typography */
+    .passage-context {
+      font-size: 0.88rem;
+      font-style: italic;
+      color: #64748b;
+      margin-bottom: 10px;
+    }
+
+    .passage-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 14px;
+      line-height: 1.35;
+    }
+
+    .passage-paragraph {
+      font-size: 1.02rem;
+      color: #334155;
+      margin-bottom: 14px;
+    }
+
+    .passage-paragraph:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Vocabulary List Typography */
+    .vocab-list {
+      list-style: none;
+    }
+
+    .vocab-item {
+      padding: 11px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .vocab-item:first-child {
+      padding-top: 0;
+    }
+
+    .vocab-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .vocab-term {
+      display: block;
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: #60a5fa;
+      margin-bottom: 2px;
+    }
+
+    .vocab-def {
+      display: block;
+      font-size: 0.92rem;
+      color: #cbd5e1;
+      line-height: 1.45;
     }
 
     /* Bottom Navigation Buttons */
     .controls {
       width: 100%;
-      max-width: 400px;
+      max-width: 500px;
       display: flex;
-      gap: 16px;
-      padding-bottom: 15px;
+      gap: 12px;
+      flex-shrink: 0;
     }
 
     .nav-btn {
       flex: 1;
-      padding: 16px;
-      font-size: 1.1rem;
+      padding: 15px;
+      font-size: 1rem;
       font-weight: 600;
       border: none;
-      border-radius: 16px;
+      border-radius: 14px;
       cursor: pointer;
-      transition: transform 0.1s ease, background-color 0.2s;
+      transition: transform 0.1s ease, opacity 0.2s;
     }
 
-    .nav-btn:active {
-      transform: scale(0.97);
+    .nav-btn:active:not(:disabled) {
+      transform: scale(0.98);
     }
 
     .btn-back {
       background-color: #e2e8f0;
       color: #334155;
+    }
+
+    .btn-flip {
+      background-color: #2563eb;
+      color: #ffffff;
+      flex: 1.2;
     }
 
     .btn-next {
@@ -161,74 +244,120 @@
     }
 
     .nav-btn:disabled {
-      opacity: 0.4;
+      opacity: 0.35;
       cursor: not-allowed;
-      transform: none;
     }
   </style>
 </head>
 <body>
 
-  <!-- Header with Progress & Shuffle -->
+  <!-- Top Bar -->
   <div class="header">
-    <span id="counter">1 / 4</span>
-    <button class="shuffle-btn" onclick="shuffleCards()">🔀 Shuffle</button>
-  </div>
-
-  <!-- Flashcard -->
-  <div class="card-container" onclick="flipCard()">
-    <div class="card" id="flashcard">
-      <div class="card-face card-front">
-        <span class="label">Text</span>
-        <div class="content-text" id="front-text">Loading...</div>
-        <span class="tap-hint">Tap card to flip</span>
-      </div>
-      <div class="card-face card-back">
-        <span class="label">Vocabulary</span>
-        <div class="content-text" id="back-text">Loading...</div>
-        <span class="tap-hint">Tap card to flip back</span>
-      </div>
+    <span id="counter">Loading...</span>
+    <div class="header-actions">
+      <button class="pill-btn" onclick="shuffleCards()">🔀 Shuffle</button>
     </div>
   </div>
 
-  <!-- Bottom Buttons -->
+  <!-- Flashcard -->
+  <div class="card-container">
+    <div class="card" id="flashcard">
+      
+      <!-- FRONT: Passage -->
+      <div class="card-face card-front">
+        <div class="card-header">
+          <span class="badge">Passage</span>
+          <button class="flip-trigger" onclick="flipCard()">Flip to Vocab ↻</button>
+        </div>
+        <div class="card-body" id="front-body" onclick="handleCardTap(event)">
+          Loading passage...
+        </div>
+      </div>
+
+      <!-- BACK: Vocabulary -->
+      <div class="card-face card-back">
+        <div class="card-header">
+          <span class="badge">Vocabulary</span>
+          <button class="flip-trigger" onclick="flipCard()">Flip to Text ↻</button>
+        </div>
+        <div class="card-body" id="back-body" onclick="handleCardTap(event)">
+          Loading vocabulary...
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom Controls -->
   <div class="controls">
     <button class="nav-btn btn-back" id="prev-btn" onclick="prevCard()">← Back</button>
+    <button class="nav-btn btn-flip" onclick="flipCard()">Flip</button>
     <button class="nav-btn btn-next" id="next-btn" onclick="nextCard()">Next →</button>
   </div>
 
   <script>
-    // ==========================================
-    // ADD OR EDIT YOUR FLASHCARDS HERE
-    // ==========================================
-    let flashcards = [
-      { text: "S'adapter à une nouvelle culture", vocab: "To adapt to a new culture" },
-      { text: "Améliorer la confiance en soi", vocab: "To improve self-confidence" },
-      { text: "Un entretien d'embauche", vocab: "A job interview" },
-      { text: "Développer une application mobile", vocab: "To develop a mobile app" }
-    ];
-    // ==========================================
-
+    let flashcards = [];
     let currentIndex = 0;
+
     const cardElement = document.getElementById('flashcard');
-    const frontText = document.getElementById('front-text');
-    const backText = document.getElementById('back-text');
+    const frontBody = document.getElementById('front-body');
+    const backBody = document.getElementById('back-body');
     const counter = document.getElementById('counter');
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
 
-    function updateCard() {
-      // Ensure card is showing the front when switching
+    // Fetch data from external JSON file
+    async function loadCards() {
+      try {
+        // Cache-busting query ensures updates to data.json appear immediately
+        const response = await fetch(`data.json?t=${new Date().getTime()}`);
+        if (!response.ok) throw new Error('Failed to load data.json');
+        flashcards = await response.json();
+        renderCard();
+      } catch (error) {
+        frontBody.innerHTML = `<p style="color:#dc2626;">Error loading <strong>data.json</strong>. Make sure both files are in the same folder on GitHub.</p>`;
+        counter.textContent = '0 / 0';
+        prevBtn.disabled = true;
+        nextBtn.disabled = true;
+      }
+    }
+
+    function renderCard() {
+      if (flashcards.length === 0) return;
+
       cardElement.classList.remove('is-flipped');
 
-      // Small delay so text updates smoothly while flipping back
       setTimeout(() => {
-        const currentCard = flashcards[currentIndex];
-        frontText.textContent = currentCard.text;
-        backText.textContent = currentCard.vocab;
-        counter.textContent = `${currentIndex + 1} / ${flashcards.length}`;
+        const item = flashcards[currentIndex];
 
-        // Disable buttons at start/end
+        // Build Front HTML (Context + Title + Paragraphs)
+        let frontHTML = '';
+        if (item.context) {
+          frontHTML += `<div class="passage-context">${item.context}</div>`;
+        }
+        if (item.title) {
+          frontHTML += `<h2 class="passage-title">${item.title}</h2>`;
+        }
+        if (Array.isArray(item.passage)) {
+          frontHTML += item.passage.map(p => `<p class="passage-paragraph">${p}</p>`).join('');
+        } else {
+          frontHTML += `<p class="passage-paragraph">${item.passage}</p>`;
+        }
+        frontBody.innerHTML = frontHTML;
+        frontBody.scrollTop = 0;
+
+        // Build Back HTML (Vocabulary List)
+        const vocabItemsHTML = item.vocabulary.map(v => `
+          <li class="vocab-item">
+            <span class="vocab-term">${v.term}</span>
+            <span class="vocab-def">${v.definition}</span>
+          </li>
+        `).join('');
+        backBody.innerHTML = `<ul class="vocab-list">${vocabItemsHTML}</ul>`;
+        backBody.scrollTop = 0;
+
+        // Update counter & button states
+        counter.textContent = `Card ${currentIndex + 1} of ${flashcards.length}`;
         prevBtn.disabled = currentIndex === 0;
         nextBtn.disabled = currentIndex === flashcards.length - 1;
       }, 120);
@@ -238,31 +367,39 @@
       cardElement.classList.toggle('is-flipped');
     }
 
+    // Allows tapping the card body to flip, without interfering with text selection
+    function handleCardTap(event) {
+      if (window.getSelection().toString().length === 0) {
+        flipCard();
+      }
+    }
+
     function nextCard() {
       if (currentIndex < flashcards.length - 1) {
         currentIndex++;
-        updateCard();
+        renderCard();
       }
     }
 
     function prevCard() {
       if (currentIndex > 0) {
         currentIndex--;
-        updateCard();
+        renderCard();
       }
     }
 
     function shuffleCards() {
+      if (flashcards.length <= 1) return;
       for (let i = flashcards.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
       }
       currentIndex = 0;
-      updateCard();
+      renderCard();
     }
 
-    // Initialize first card
-    updateCard();
+    // Start app
+    loadCards();
   </script>
 </body>
 </html>
