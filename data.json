@@ -1,0 +1,33 @@
+[
+  {
+    "id": 1,
+    "title": "Travaux sur la ligne de train Paris – Rouen",
+    "context": "Vous lisez l'affiche suivante à la gare.",
+    "passage": [
+      "En raison d’importants travaux de modernisation sur les voies ferrées, la circulation des trains entre Paris-Saint-Lazare et Rouen sera fortement perturbée ce week-end, du samedi 14 au dimanche 15 novembre.",
+      "Aucun train ne circulera entre ces deux villes durant ces deux journées. Pour permettre aux voyageurs de se déplacer, la compagnie ferroviaire met en place des bus de remplacement. Ces bus partiront toutes les trente minutes devant l'entrée principale de la gare. Attention, le temps de trajet sera rallongé d'environ quarante-cinq minutes en raison de la circulation routière.",
+      "Les billets de train habituels restent valables à bord des bus, mais il est interdit d’y transporter des vélos. De plus, les animaux domestiques doivent obligatoirement voyager dans un panier fermé.",
+      "Le trafic normal des trains reprendra dès lundi matin à 5h30. Pour toute question, nos agents sont à votre disposition au guichet d'information ou par téléphone au 36 35."
+    ],
+    "vocabulary": [
+      { "term": "l'affiche (f.)", "definition": "the poster / sign / notice" },
+      { "term": "la ligne de train", "definition": "the train line / route" },
+      { "term": "les voies ferrées (f.)", "definition": "the railway tracks" },
+      { "term": "la circulation des trains", "definition": "train traffic / train service" },
+      { "term": "les travaux (m. pl.)", "definition": "construction / maintenance work (always plural in this sense)" },
+      { "term": "d'importants travaux", "definition": "major works (note: \"importants\" here means \"major\" or \"extensive,\" not just \"important\")" },
+      { "term": "fortement perturbée", "definition": "heavily disrupted / severely affected (from the verb perturber = to disrupt)" },
+      { "term": "en raison de", "definition": "due to / because of" },
+      { "term": "se déplacer", "definition": "to get around / to travel" },
+      { "term": "la compagnie ferroviaire", "definition": "the railway company" },
+      { "term": "mettre en place", "definition": "to set up / to put in place / to arrange" },
+      { "term": "rallongé", "definition": "extended / lengthened (from rallonger = to make longer)" },
+      { "term": "Aucun train ne circulera...", "definition": "No trains will run... (aucun... ne = no / none at all)" },
+      { "term": "les billets habituels (m.)", "definition": "regular / usual tickets" },
+      { "term": "rester valable", "definition": "to remain valid (from valable = valid)" },
+      { "term": "un panier fermé", "definition": "a closed carrier / basket (here, a pet carrier)" },
+      { "term": "le guichet d'information", "definition": "the information desk / ticket counter" },
+      { "term": "à bord (de)", "definition": "on board / aboard" }
+    ]
+  }
+]
