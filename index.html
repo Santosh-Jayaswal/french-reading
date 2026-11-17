@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>My Flashcards</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f4f6f9;
+      color: #1e293b;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 100dvh; /* Uses dynamic viewport height for mobile browsers */
+      padding: 20px;
+      user-select: none; /* Prevents accidental text highlighting when tapping */
+    }
+
+    /* Top Counter */
+    .header {
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #64748b;
+    }
+
+    .shuffle-btn {
+      background: none;
+      border: 1px solid #cbd5e1;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: #475569;
+      cursor: pointer;
+    }
+
+    .shuffle-btn:active {
+      background-color: #e2e8f0;
+    }
+
+    /* 3D Card Container */
+    .card-container {
+      width: 100%;
+      max-width: 400px;
+      height: 55vh;
+      max-height: 450px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    .card {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transition: transform 0.5s cubic-bezier(0.4, 0.2, 0.2, 1);
+      transform-style: preserve-3d;
+    }
+
+    .card.is-flipped {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Front Side (Text) */
+    .card-front {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+    }
+
+    /* Back Side (Vocabulary) */
+    .card-back {
+      background-color: #2563eb;
+      color: #ffffff;
+      transform: rotateY(180deg);
+    }
+
+    .label {
+      position: absolute;
+      top: 20px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      opacity: 0.6;
+      font-weight: 700;
+    }
+
+    .content-text {
+      font-size: 1.6rem;
+      font-weight: 600;
+      line-height: 1.4;
+      word-wrap: break-word;
+    }
+
+    .tap-hint {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.8rem;
+      opacity: 0.5;
+    }
+
+    /* Bottom Navigation Buttons */
+    .controls {
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      gap: 16px;
+      padding-bottom: 15px;
+    }
+
+    .nav-btn {
+      flex: 1;
+      padding: 16px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: transform 0.1s ease, background-color 0.2s;
+    }
+
+    .nav-btn:active {
+      transform: scale(0.97);
+    }
+
+    .btn-back {
+      background-color: #e2e8f0;
+      color: #334155;
+    }
+
+    .btn-next {
+      background-color: #1e293b;
+      color: #ffffff;
+    }
+
+    .nav-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header with Progress & Shuffle -->
+  <div class="header">
+    <span id="counter">1 / 4</span>
+    <button class="shuffle-btn" onclick="shuffleCards()">🔀 Shuffle</button>
+  </div>
+
+  <!-- Flashcard -->
+  <div class="card-container" onclick="flipCard()">
+    <div class="card" id="flashcard">
+      <div class="card-face card-front">
+        <span class="label">Text</span>
+        <div class="content-text" id="front-text">Loading...</div>
+        <span class="tap-hint">Tap card to flip</span>
+      </div>
+      <div class="card-face card-back">
+        <span class="label">Vocabulary</span>
+        <div class="content-text" id="back-text">Loading...</div>
+        <span class="tap-hint">Tap card to flip back</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Buttons -->
+  <div class="controls">
+    <button class="nav-btn btn-back" id="prev-btn" onclick="prevCard()">← Back</button>
+    <button class="nav-btn btn-next" id="next-btn" onclick="nextCard()">Next →</button>
+  </div>
+
+  <script>
+    // ==========================================
+    // ADD OR EDIT YOUR FLASHCARDS HERE
+    // ==========================================
+    let flashcards = [
+      { text: "S'adapter à une nouvelle culture", vocab: "To adapt to a new culture" },
+      { text: "Améliorer la confiance en soi", vocab: "To improve self-confidence" },
+      { text: "Un entretien d'embauche", vocab: "A job interview" },
+      { text: "Développer une application mobile", vocab: "To develop a mobile app" }
+    ];
+    // ==========================================
+
+    let currentIndex = 0;
+    const cardElement = document.getElementById('flashcard');
+    const frontText = document.getElementById('front-text');
+    const backText = document.getElementById('back-text');
+    const counter = document.getElementById('counter');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+
+    function updateCard() {
+      // Ensure card is showing the front when switching
+      cardElement.classList.remove('is-flipped');
+
+      // Small delay so text updates smoothly while flipping back
+      setTimeout(() => {
+        const currentCard = flashcards[currentIndex];
+        frontText.textContent = currentCard.text;
+        backText.textContent = currentCard.vocab;
+        counter.textContent = `${currentIndex + 1} / ${flashcards.length}`;
+
+        // Disable buttons at start/end
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex === flashcards.length - 1;
+      }, 120);
+    }
+
+    function flipCard() {
+      cardElement.classList.toggle('is-flipped');
+    }
+
+    function nextCard() {
+      if (currentIndex < flashcards.length - 1) {
+        currentIndex++;
+        updateCard();
+      }
+    }
+
+    function prevCard() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateCard();
+      }
+    }
+
+    function shuffleCards() {
+      for (let i = flashcards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+      }
+      currentIndex = 0;
+      updateCard();
+    }
+
+    // Initialize first card
+    updateCard();
+  </script>
+</body>
+</html>
