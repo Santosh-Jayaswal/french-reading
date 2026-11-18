@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Listening – French Practice</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      padding-bottom: 0;
+    }
+
+    /* Full-Screen Clean List Area */
+    .listening-container {
+      width: 100%;
+      max-width: 500px;
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .play-all-pill {
+      background-color: #2563eb;
+      color: #ffffff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.22);
+      transition: transform 0.1s, background-color 0.2s;
+    }
+
+    .play-all-pill:active {
+      transform: scale(0.96);
+    }
+
+    .play-all-pill.active {
+      background-color: #dc2626;
+      box-shadow: 0 4px 12px rgba(220, 38, 38, 0.22);
+    }
+
+    /* Scrollable Track List */
+    .track-feed {
+      list-style: none;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      flex: 1;
+      padding-bottom: 145px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .track-row {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      padding: 15px 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      transition: border-color 0.2s, background-color 0.2s, transform 0.1s;
+    }
+
+    .track-row:active {
+      transform: scale(0.99);
+    }
+
+    .track-row.active {
+      background: #eff6ff;
+      border-color: #93c5fd;
+    }
+
+    .track-badge {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background-color: #f1f5f9;
+      color: #475569;
+      font-size: 0.9rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .track-row.active .track-badge {
+      background-color: #2563eb;
+      color: #ffffff;
+    }
+
+    .track-meta {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .track-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #0f172a;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 3px;
+    }
+
+    .track-row.active .track-title {
+      color: #1d4ed8;
+    }
+
+    .track-subtitle {
+      font-size: 0.82rem;
+      color: #64748b;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Sleek Floating Mini-Player Pill */
+    .floating-player-wrap {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 14px;
+      padding: 0 16px;
+      display: flex;
+      justify-content: center;
+      pointer-events: none;
+      z-index: 50;
+    }
+
+    .floating-player {
+      width: 100%;
+      max-width: 500px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid #cbd5e1;
+      border-radius: 22px;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.14);
+      padding: 12px 16px 14px;
+      pointer-events: auto;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s;
+    }
+
+    .floating-player.hidden {
+      transform: translateY(130%);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* Progress Bar */
+    .mini-progress-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .mini-time {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #64748b;
+      font-variant-numeric: tabular-nums;
+      min-width: 28px;
+    }
+
+    .mini-slider {
+      flex: 1;
+      height: 4px;
+      border-radius: 4px;
+      background: #e2e8f0;
+      outline: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+    }
+
+    .mini-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: #2563eb;
+      cursor: pointer;
+    }
+
+    /* Track Info + Speed Pill */
+    .mini-info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .mini-title-group {
+      min-width: 0;
+      flex: 1;
+    }
+
+    .mini-title {
+      font-size: 0.94rem;
+      font-weight: 700;
+      color: #0f172a;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .mini-status {
+      font-size: 0.74rem;
+      color: #2563eb;
+      font-weight: 600;
+    }
+
+    .mini-speed {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      color: #334155;
+      padding: 4px 10px;
+      border-radius: 10px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    /* 2 Balanced Action Buttons: Loop & Play/Pause */
+    .mini-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .m-btn {
+      border: none;
+      border-radius: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: transform 0.1s, background-color 0.2s;
+    }
+
+    .m-btn:active {
+      transform: scale(0.97);
+    }
+
+    .m-btn-loop {
+      flex: 1;
+      height: 44px;
+      background: #f1f5f9;
+      color: #475569;
+      font-size: 0.88rem;
+    }
+
+    .m-btn-loop.active {
+      background: #dbeafe;
+      color: #1d4ed8;
+      border: 1px solid #93c5fd;
+    }
+
+    .m-btn-play {
+      flex: 1.5;
+      height: 44px;
+      background: #0f172a;
+      color: #ffffff;
+      font-size: 0.96rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Slide-Out Navigation Drawer -->
+  <div class="nav-overlay" id="nav-overlay" onclick="toggleMenu()"></div>
+  <nav class="nav-drawer" id="nav-drawer">
+    <div class="nav-drawer-header">
+      <span class="nav-drawer-title">French Practice</span>
+      <button class="close-menu-btn" onclick="toggleMenu()">✕</button>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">📖 Home (Reading)</a></li>
+      <li><a href="listening.html" class="nav-link active">🎧 Listening</a></li>
+      <li><a href="speaking.html" class="nav-link">🗣️ Speaking</a></li>
+    </ul>
+  </nav>
+
+  <!-- Top Navigation Header -->
+  <div class="header">
+    <div class="header-left">
+      <button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+      <span id="track-counter">Listening</span>
+    </div>
+    <button class="play-all-pill" id="play-all-btn" onclick="togglePlayAll()">▶ Play All</button>
+  </div>
+
+  <!-- Main Clean Track List -->
+  <div class="listening-container">
+    <ul class="track-feed" id="track-list">
+      <li style="padding: 24px; color: #64748b; text-align: center;">Loading audio files...</li>
+    </ul>
+  </div>
+
+  <!-- Sleek Floating Pill Player -->
+  <div class="floating-player-wrap">
+    <div class="floating-player hidden" id="floating-player">
+      
+      <div class="mini-progress-row">
+        <span class="mini-time" id="current-time">0:00</span>
+        <input type="range" class="mini-slider" id="progress-slider" value="0" min="0" max="100" step="0.1" oninput="seekAudio(this.value)">
+        <span class="mini-time" id="total-time" style="text-align: right;">0:00</span>
+      </div>
+
+      <div class="mini-info-row">
+        <div class="mini-title-group">
+          <div class="mini-title" id="now-playing-title">Track Title</div>
+          <div class="mini-status" id="player-status">Ready</div>
+        </div>
+        <button class="mini-speed" id="speed-btn" onclick="cycleSpeed()">1x</button>
+      </div>
+
+      <div class="mini-controls">
+        <button class="m-btn m-btn-loop" id="loop-btn" onclick="toggleLoop()">🔁 Loop</button>
+        <button class="m-btn m-btn-play" id="play-pause-btn" onclick="togglePlayPause()">▶ Play</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('nav-drawer').classList.toggle('open');
+      document.getElementById('nav-overlay').classList.toggle('open');
+    }
+
+    let tracks = [];
+    let currentTrackIndex = -1;
+    let isLooping = false;
+    let isPlayAllActive = false;
+    const speeds = [1.0, 0.85, 1.15];
+    let speedIndex = 0;
+
+    const audio = new Audio();
+    audio.preload = 'auto';
+
+    const trackListEl = document.getElementById('track-list');
+    const trackCounterEl = document.getElementById('track-counter');
+    const playAllBtn = document.getElementById('play-all-btn');
+    const floatingPlayer = document.getElementById('floating-player');
+    const playerStatus = document.getElementById('player-status');
+    const nowPlayingTitle = document.getElementById('now-playing-title');
+    const playPauseBtn = document.getElementById('play-pause-btn');
+    const loopBtn = document.getElementById('loop-btn');
+    const progressSlider = document.getElementById('progress-slider');
+    const currentTimeEl = document.getElementById('current-time');
+    const totalTimeEl = document.getElementById('total-time');
+    const speedBtn = document.getElementById('speed-btn');
+
+    async function loadAudioTracks() {
+      try {
+        const response = await fetch(`listening-data.json?t=${new Date().getTime()}`);
+        if (!response.ok) throw new Error('Failed to load listening-data.json');
+        const data = await response.json();
+
+        tracks = data.filter(item => item.audio && item.audio.trim() !== '');
+
+        if (tracks.length === 0) {
+          trackListEl.innerHTML = `<li style="padding: 24px; color: #64748b; text-align: center;">No audio files listed in listening-data.json.</li>`;
+          return;
+        }
+
+        renderTrackList();
+      } catch (err) {
+        trackListEl.innerHTML = `<li style="padding: 24px; color: #dc2626; text-align: center;">Error loading <strong>listening-data.json</strong>.</li>`;
+      }
+    }
+
+    function renderTrackList() {
+      trackCounterEl.textContent = `${tracks.length} Audio Files`;
+      trackListEl.innerHTML = tracks.map((track, idx) => {
+        const fileName = track.audio.split('/').pop();
+        const isActive = idx === currentTrackIndex;
+        return `
+          <li class="track-row ${isActive ? 'active' : ''}" onclick="onTrackClick(${idx})">
+            <div class="track-badge">${isActive && !audio.paused ? '🔊' : idx + 1}</div>
+            <div class="track-meta">
+              <div class="track-title">${track.title || fileName}</div>
+              <div class="track-subtitle">${track.subtitle || fileName}</div>
+            </div>
+          </li>
+        `;
+      }).join('');
+    }
+
+    function onTrackClick(index) {
+      selectTrack(index, true);
+    }
+
+    function selectTrack(index, autoPlay = true) {
+      if (index < 0 || index >= tracks.length) return;
+      currentTrackIndex = index;
+      const track = tracks[currentTrackIndex];
+
+      floatingPlayer.classList.remove('hidden');
+
+      audio.pause();
+      audio.src = encodeURI(track.audio);
+      audio.load();
+      audio.playbackRate = speeds[speedIndex];
+
+      progressSlider.value = 0;
+      currentTimeEl.textContent = '0:00';
+      totalTimeEl.textContent = '0:00';
+
+      nowPlayingTitle.textContent = track.title || track.audio.split('/').pop();
+      updateControlsUI();
+      renderTrackList();
+
+      if (autoPlay) {
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {
+            playerStatus.textContent = 'Tap Play to start';
+          });
+        }
+      }
+    }
+
+    function togglePlayPause() {
+      if (tracks.length === 0) return;
+      if (currentTrackIndex === -1) {
+        selectTrack(0, true);
+        return;
+      }
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    }
+
+    function toggleLoop() {
+      isLooping = !isLooping;
+      if (isLooping && isPlayAllActive) {
+        isPlayAllActive = false;
+      }
+      updateControlsUI();
+    }
+
+    function togglePlayAll() {
+      if (tracks.length === 0) return;
+
+      if (isPlayAllActive) {
+        isPlayAllActive = false;
+        audio.pause();
+        updateControlsUI();
+        renderTrackList();
+      } else {
+        isPlayAllActive = true;
+        isLooping = false;
+        selectTrack(0, true);
+      }
+    }
+
+    function cycleSpeed() {
+      speedIndex = (speedIndex + 1) % speeds.length;
+      const newRate = speeds[speedIndex];
+      audio.playbackRate = newRate;
+      speedBtn.textContent = `${newRate}x`;
+    }
+
+    function seekAudio(value) {
+      if (!audio.duration) return;
+      audio.currentTime = (value / 100) * audio.duration;
+    }
+
+    function formatTime(seconds) {
+      if (isNaN(seconds) || !isFinite(seconds)) return '0:00';
+      const mins = Math.floor(seconds / 60);
+      const secs = Math.floor(seconds % 60);
+      return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+    }
+
+    function updateControlsUI() {
+      if (audio.paused) {
+        playPauseBtn.textContent = '▶ Play';
+        playerStatus.textContent = `Paused • Track ${currentTrackIndex + 1} of ${tracks.length}`;
+      } else {
+        playPauseBtn.textContent = '⏸ Pause';
+        playerStatus.textContent = isLooping
+          ? 'Looping Current Track'
+          : `Auto-Playing • Track ${currentTrackIndex + 1} of ${tracks.length}`;
+      }
+
+      loopBtn.classList.toggle('active', isLooping);
+      playAllBtn.classList.toggle('active', isPlayAllActive);
+      playAllBtn.textContent = isPlayAllActive ? '⏹ Stop All' : '▶ Play All';
+    }
+
+    audio.addEventListener('play', () => {
+      updateControlsUI();
+      renderTrackList();
+    });
+
+    audio.addEventListener('pause', () => {
+      updateControlsUI();
+      renderTrackList();
+    });
+
+    audio.addEventListener('timeupdate', () => {
+      if (audio.duration) {
+        progressSlider.value = (audio.currentTime / audio.duration) * 100;
+        currentTimeEl.textContent = formatTime(audio.currentTime);
+        totalTimeEl.textContent = formatTime(audio.duration);
+      }
+    });
+
+    audio.addEventListener('loadedmetadata', () => {
+      totalTimeEl.textContent = formatTime(audio.duration);
+    });
+
+    // Automatically advance to the next track until the end of the list (unless Loop is on)
+    audio.addEventListener('ended', () => {
+      if (isLooping) {
+        audio.currentTime = 0;
+        audio.play();
+      } else if (currentTrackIndex < tracks.length - 1) {
+        selectTrack(currentTrackIndex + 1, true);
+      } else {
+        isPlayAllActive = false;
+        updateControlsUI();
+        renderTrackList();
+        playerStatus.textContent = 'Finished All Tracks';
+      }
+    });
+
+    audio.addEventListener('error', () => {
+      playerStatus.textContent = 'Audio file not found';
+      isPlayAllActive = false;
+      updateControlsUI();
+    });
+
+    window.addEventListener('beforeunload', () => audio.pause());
+
+    loadAudioTracks();
+  </script>
+</body>
+</html>

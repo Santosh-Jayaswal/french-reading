@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Speaking – French Practice</title>
+  <link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+
+  <!-- Slide-Out Navigation Drawer -->
+  <div class="nav-overlay" id="nav-overlay" onclick="toggleMenu()"></div>
+  <nav class="nav-drawer" id="nav-drawer">
+    <div class="nav-drawer-header">
+      <span class="nav-drawer-title">French Practice</span>
+      <button class="close-menu-btn" onclick="toggleMenu()">✕</button>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">📖 Home (Reading)</a></li>
+      <li><a href="listening.html" class="nav-link">🎧 Listening</a></li>
+      <li><a href="speaking.html" class="nav-link active">🗣️ Speaking</a></li>
+    </ul>
+  </nav>
+
+  <!-- Invisible Backdrop to Close Dropdown When Tapping Outside -->
+  <div class="popover-backdrop" id="popover-backdrop" onclick="closeTopicPopover()"></div>
+
+  <!-- Top Bar + Anchored Dropdown Popover -->
+  <div class="header">
+    <div class="header-left">
+      <button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+      <button class="topic-picker-btn" id="topic-picker-btn" onclick="toggleTopicPopover()" aria-label="Choose topic">
+        <span id="counter">Loading...</span>
+        <span class="topic-picker-arrow">▾</span>
+      </button>
+    </div>
+    <button class="pill-btn" onclick="shuffleCards()">🔀 Shuffle</button>
+
+    <!-- Dropdown Popover Anchored Right Below Header -->
+    <div class="topic-popover" id="topic-popover">
+      <div class="popover-search-wrap">
+        <input type="text" class="popover-search-input" id="topic-search" placeholder="🔍 Search topic..." oninput="filterTopics(this.value)">
+      </div>
+      <ul class="popover-list" id="topic-list"></ul>
+    </div>
+  </div>
+
+  <!-- Flashcard -->
+  <div class="card-container">
+    <div class="card" id="flashcard">
+      
+      <!-- FRONT: Speaking Text + Play Button -->
+      <div class="card-face card-front">
+        <div class="card-header">
+          <span class="badge">Speaking Text</span>
+          <div class="card-header-actions">
+            <button class="speed-trigger" id="speed-btn" onclick="toggleSpeed()">1x</button>
+            <button class="play-trigger" id="play-btn" onclick="toggleAudio()">▶ Play</button>
+          </div>
+        </div>
+        <div class="card-body" id="front-body">
+          Loading speaking prompt...
+        </div>
+      </div>
+
+      <!-- BACK: Vocabulary -->
+      <div class="card-face card-back">
+        <div class="card-header">
+          <span class="badge">Vocabulary</span>
+          <button class="flip-trigger" onclick="flipCard()">Flip to Text ↻</button>
+        </div>
+        <div class="card-body" id="back-body">
+          Loading vocabulary...
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom Controls -->
+  <div class="controls">
+    <button class="nav-btn btn-back" id="prev-btn" onclick="prevCard()">← Back</button>
+    <button class="nav-btn btn-flip" onclick="flipCard()">Flip</button>
+    <button class="nav-btn btn-next" id="next-btn" onclick="nextCard()">Next →</button>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      stopAudio();
+      closeTopicPopover();
+      document.getElementById('nav-drawer').classList.toggle('open');
+      document.getElementById('nav-overlay').classList.toggle('open');
+    }
+
+    let flashcards = [];
+    let currentIndex = 0;
+    let isPlaying = false;
+    let playbackRate = 1.0;
+    const audioPlayer = new Audio();
+
+    const cardElement = document.getElementById('flashcard');
+    const frontBody = document.getElementById('front-body');
+    const backBody = document.getElementById('back-body');
+    const counter = document.getElementById('counter');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const playBtn = document.getElementById('play-btn');
+    const speedBtn = document.getElementById('speed-btn');
+
+    const topicPickerBtn = document.getElementById('topic-picker-btn');
+    const topicPopover = document.getElementById('topic-popover');
+    const popoverBackdrop = document.getElementById('popover-backdrop');
+    const topicList = document.getElementById('topic-list');
+    const topicSearch = document.getElementById('topic-search');
+
+    audioPlayer.addEventListener('ended', () => {
+      isPlaying = false;
+      updatePlayButton();
+    });
+
+    audioPlayer.addEventListener('error', () => {
+      isPlaying = false;
+      updatePlayButton();
+      alert('Could not load the audio file. Check the path in speaking-data.json.');
+    });
+
+    async function loadCards() {
+      try {
+        const response = await fetch(`speaking-data.json?t=${new Date().getTime()}`);
+        if (!response.ok) throw new Error('Failed to load speaking-data.json');
+        flashcards = await response.json();
+        renderCard();
+      } catch (error) {
+        frontBody.innerHTML = `<p style="color:#dc2626;">Error loading <strong>speaking-data.json</strong>.</p>`;
+        counter.textContent = '0 / 0';
+        prevBtn.disabled = true;
+        nextBtn.disabled = true;
+      }
+    }
+
+    function renderCard() {
+      if (flashcards.length === 0) return;
+
+      stopAudio();
+      cardElement.classList.remove('is-flipped');
+
+      setTimeout(() => {
+        const item = flashcards[currentIndex];
+
+        let frontHTML = '';
+        if (item.context) frontHTML += `<div class="passage-context">${item.context}</div>`;
+        if (item.title) frontHTML += `<h2 class="passage-title">${item.title}</h2>`;
+        if (Array.isArray(item.passage)) {
+          frontHTML += item.passage.map(p => `<p class="passage-paragraph">${p}</p>`).join('');
+        } else {
+          frontHTML += `<p class="passage-paragraph">${item.passage}</p>`;
+        }
+        frontBody.innerHTML = frontHTML;
+        frontBody.scrollTop = 0;
+
+        const vocabItemsHTML = item.vocabulary.map(v => `
+          <li class="vocab-item">
+            <span class="vocab-term">${v.term}</span>
+            <span class="vocab-def">${v.definition}</span>
+          </li>
+        `).join('');
+        backBody.innerHTML = `<ul class="vocab-list">${vocabItemsHTML}</ul>`;
+        backBody.scrollTop = 0;
+
+        counter.textContent = `Card ${currentIndex + 1} of ${flashcards.length}`;
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex === flashcards.length - 1;
+      }, 120);
+    }
+
+    // Anchored Dropdown Popover Functions
+    function toggleTopicPopover() {
+      if (topicPopover.classList.contains('open')) {
+        closeTopicPopover();
+      } else {
+        openTopicPopover();
+      }
+    }
+
+    function openTopicPopover() {
+      if (flashcards.length === 0) return;
+      topicSearch.value = '';
+      renderTopicList('');
+      topicPopover.classList.add('open');
+      popoverBackdrop.classList.add('open');
+      topicPickerBtn.classList.add('open');
+
+      setTimeout(() => {
+        const activeEl = topicList.querySelector('.popover-item.active');
+        if (activeEl) activeEl.scrollIntoView({ block: 'nearest' });
+      }, 50);
+    }
+
+    function closeTopicPopover() {
+      topicPopover.classList.remove('open');
+      popoverBackdrop.classList.remove('open');
+      topicPickerBtn.classList.remove('open');
+    }
+
+    function filterTopics(query) {
+      renderTopicList(query.trim().toLowerCase());
+    }
+
+    function renderTopicList(query) {
+      const itemsHTML = flashcards.map((item, idx) => {
+        const title = item.title || `Card ${idx + 1}`;
+        const context = item.context || '';
+        const matches = !query ||
+          title.toLowerCase().includes(query) ||
+          context.toLowerCase().includes(query) ||
+          String(idx + 1) === query;
+
+        if (!matches) return '';
+
+        return `
+          <li class="popover-item ${idx === currentIndex ? 'active' : ''}" onclick="selectTopic(${idx})">
+            <div class="popover-item-num">${idx + 1}</div>
+            <div class="popover-item-info">
+              <div class="popover-item-title">${title}</div>
+              ${context ? `<div class="popover-item-sub">${context}</div>` : ''}
+            </div>
+          </li>
+        `;
+      }).join('');
+
+      topicList.innerHTML = itemsHTML || `<li style="padding: 18px; text-align: center; color: #64748b; font-size: 0.9rem;">No matching topics found</li>`;
+    }
+
+    function selectTopic(index) {
+      currentIndex = index;
+      closeTopicPopover();
+      renderCard();
+    }
+
+    function toggleAudio() {
+      if (isPlaying) {
+        stopAudio();
+      } else {
+        startAudio();
+      }
+    }
+
+    function startAudio() {
+      const item = flashcards[currentIndex];
+      if (!item) return;
+
+      if (item.audio) {
+        audioPlayer.src = encodeURI(item.audio);
+        audioPlayer.playbackRate = playbackRate;
+        audioPlayer.play()
+          .then(() => {
+            isPlaying = true;
+            updatePlayButton();
+          })
+          .catch(() => {
+            isPlaying = false;
+            updatePlayButton();
+          });
+        return;
+      }
+
+      if (!('speechSynthesis' in window)) return;
+      window.speechSynthesis.cancel();
+
+      const parts = [];
+      if (item.title) parts.push(item.title);
+      if (Array.isArray(item.passage)) parts.push(...item.passage);
+      else if (item.passage) parts.push(item.passage);
+
+      const utterance = new SpeechSynthesisUtterance(parts.join('. '));
+      utterance.lang = 'fr-FR';
+      utterance.rate = playbackRate;
+
+      const voices = window.speechSynthesis.getVoices();
+      const frenchVoice = voices.find(v => v.lang.startsWith('fr'));
+      if (frenchVoice) utterance.voice = frenchVoice;
+
+      utterance.onend = () => { isPlaying = false; updatePlayButton(); };
+      utterance.onerror = () => { isPlaying = false; updatePlayButton(); };
+
+      isPlaying = true;
+      updatePlayButton();
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function stopAudio() {
+      audioPlayer.pause();
+      audioPlayer.currentTime = 0;
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+      }
+      isPlaying = false;
+      updatePlayButton();
+    }
+
+    function updatePlayButton() {
+      if (isPlaying) {
+        playBtn.textContent = '⏹ Stop';
+        playBtn.classList.add('is-playing');
+      } else {
+        playBtn.textContent = '▶ Play';
+        playBtn.classList.remove('is-playing');
+      }
+    }
+
+    function toggleSpeed() {
+      playbackRate = playbackRate === 1.0 ? 0.85 : 1.0;
+      speedBtn.textContent = playbackRate === 1.0 ? '1x' : '0.85x';
+      audioPlayer.playbackRate = playbackRate;
+    }
+
+    function flipCard() {
+      closeTopicPopover();
+      stopAudio();
+      cardElement.classList.toggle('is-flipped');
+    }
+
+    function nextCard() {
+      closeTopicPopover();
+      if (currentIndex < flashcards.length - 1) {
+        currentIndex++;
+        renderCard();
+      }
+    }
+
+    function prevCard() {
+      closeTopicPopover();
+      if (currentIndex > 0) {
+        currentIndex--;
+        renderCard();
+      }
+    }
+
+    function shuffleCards() {
+      closeTopicPopover();
+      if (flashcards.length <= 1) return;
+      for (let i = flashcards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+      }
+      currentIndex = 0;
+      renderCard();
+    }
+
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+    }
+
+    window.addEventListener('beforeunload', stopAudio);
+
+    loadCards();
+  </script>
+</body>
+</html>

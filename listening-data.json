@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Jouer à des jeux",
+    "subtitle": "Compréhension orale",
+    "audio": "audio/listening/jouer a des jeux.m4a"
+  },
+  {
+    "id": 2,
+    "title": "Steve Jobs",
+    "subtitle": "Compréhension orale",
+    "audio": "audio/listening/steve jobs.m4a"
+  },
+  {
+    "id": 3,
+    "title": "Téléphone portable",
+    "subtitle": "Compréhension orale",
+    "audio": "audio/listening/téléphone portable.m4a"
+  }
+]
