@@ -546,6 +546,7 @@
     });
 
     audio.addEventListener('error', () => {
+      const failedPath = tracks[currentTrackIndex]?.audio || 'unknown';
       playerStatus.textContent = 'Audio file not found';
       isPlayAllActive = false;
       updateControlsUI();
