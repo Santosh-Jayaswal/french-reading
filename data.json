@@ -29,5 +29,25 @@
       { "term": "le guichet d'information", "definition": "the information desk / ticket counter" },
       { "term": "à bord (de)", "definition": "on board / aboard" }
     ]
+  },
+  {
+    "id": 2,
+    "title": "Règlement intérieur – Bibliothèque Victor Hugo",
+    "context": "Vous lisez l'affiche suivante à l'entrée d'une bibliothèque municipale.",
+    "passage": [
+      "Bienvenue à la bibliothèque Victor Hugo ! L’inscription est gratuite pour tous les habitants de la ville sur présentation d’une pièce d'identité et d'un justificatif de domicile. Pour les personnes habitant dans une autre commune, le tarif annuel est de 15 euros.",
+      "Avec votre carte de lecteur, vous pouvez emprunter jusqu'à six documents (livres, revues ou DVD) pour une durée maximale de trois semaines. Si vous avez besoin de plus de temps, il est possible de prolonger votre emprunt une seule fois sur notre site Internet, sauf si le document est déjà réservé par un autre usager.",
+      "Dans les salles de lecture, le silence est obligatoire afin de respecter le travail de chacun. Les téléphones portables doivent être mis en mode silencieux dès l'entrée. Il est interdit de manger et de boire dans les espaces de lecture, mais une cafétéria est disponible au rez-de-chaussée.",
+      "La bibliothèque est ouverte du mardi au samedi, de 10h00 à 18h30. Une boîte de retour est accessible à l'extérieur 24h/24 pour rendre vos livres en dehors des heures d'ouverture."
+    ],
+    "vocabulary": [
+      { "term": "l'inscription", "definition": "registration / membership" },
+      { "term": "une pièce d'identité", "definition": "ID / identification document" },
+      { "term": "un justificatif de domicile", "definition": "proof of address" },
+      { "term": "une commune", "definition": "municipality / town" },
+      { "term": "faire une collecte", "definition": "to take up a collection / pool money" },
+      { "term": "un cadeau commun", "definition": "group gift / joint present" },
+      { "term": "une montre", "definition": "watch (wristwatch)" }
+    ]
   }
 ]
