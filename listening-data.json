@@ -16,5 +16,17 @@
     "title": "Téléphone portable",
     "subtitle": "Compréhension orale",
     "audio": "audio/listening/téléphone portable.m4a"
+  },
+  {
+    "id": 4,
+    "title": "Mon Journee au Bureau",
+    "subtitle": "Compréhension orale",
+    "audio": "audio/listening/une-journee-au-bureau.m4a"
+  },
+  {
+    "id": 5,
+    "title": "Mon Appartement",
+    "subtitle": "Compréhension orale",
+    "audio": "audio/listening/mon-appartement.m4a"
   }
 ]
