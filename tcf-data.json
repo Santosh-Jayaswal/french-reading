@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "Expression orale – Tâche 2 : S'inscrire à un club sportif",
+    "context": "TCF Canada – Interaction en face à face",
+    "passage": [
+      "Situation : Vous souhaitez vous inscrire dans un club de sport près de chez vous. Je suis le responsable de l'accueil. Posez-moi des questions pour obtenir des renseignements (horaires, tarifs, activités proposées, inscription).",
+      "Exemples de questions à poser :",
+      "• Bonjour, quels types de cours ou d'activités sportives proposez-vous ?",
+      "• Quels sont vos horaires d'ouverture en semaine et le week-end ?",
+      "• Combien coûte l'abonnement mensuel ou annuel ? Y a-t-il des frais d'inscription ?",
+      "• Est-il possible de faire une séance d'essai gratuite avant de s'inscrire ?",
+      "• Quels documents faut-il apporter pour finaliser l'inscription ?"
+    ],
+    "vocabulary": [
+      { "term": "Le responsable de l'accueil", "definition": "The reception manager / front desk coordinator" },
+      { "term": "Un abonnement mensuel / annuel", "definition": "A monthly / annual membership" },
+      { "term": "Les frais d'inscription", "definition": "Registration fees" },
+      { "term": "Une séance d'essai gratuite", "definition": "A free trial session" },
+      { "term": "Finaliser l'inscription", "definition": "To complete / finalize registration" }
+    ]
+  }
+]
