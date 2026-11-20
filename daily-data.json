@@ -1,20 +1,123 @@
 [
   {
     "id": 1,
-    "title": "Parler de sa routine quotidienne",
-    "context": "Question du jour – Conversation courante",
+    "title": "Comment s’est passée ta journée ?",
+    "context": "Question du jour – Vie quotidienne",
     "passage": [
-      "Question : Pouvez-vous me décrire votre journée type pendant la semaine ?",
-      "Exemple de réponse :",
-      "En général, je me réveille vers 7h00 du matin. Après avoir pris mon petit-déjeuner, je prends le bus et le train pour aller au travail.",
-      "Je travaille dans la vente, où j'aide les clients à choisir un téléphone portable adapté à leurs besoins. Le soir, quand je rentre chez moi, j'aime cuisiner un bon repas, étudier le français pendant une heure et me détendre devant la télévision."
+      "Question : Comment s’est passée ta journée jusqu’à maintenant ?",
+      "Réponse : Ma journée s’est bien passée, j’ai étudié le français pendant longtemps et j’ai aussi pratiqué la compréhension avec Gemini. J’ai préparé mon déjeuner et j’ai fait la vaisselle."
     ],
     "vocabulary": [
-      { "term": "Une journée type", "definition": "A typical day" },
-      { "term": "En général", "definition": "Generally / usually" },
-      { "term": "Après avoir pris...", "definition": "After having taken / had..." },
-      { "term": "Adapté à leurs besoins", "definition": "Suited to their needs" },
-      { "term": "Se détendre", "definition": "To relax / unwind" }
+      { "term": "Se passer (bien / mal)", "definition": "To go (well / badly)" },
+      { "term": "Jusqu'à maintenant", "definition": "So far / up until now" },
+      { "term": "Pendant longtemps", "definition": "For a long time" },
+      { "term": "La compréhension", "definition": "Comprehension / understanding" },
+      { "term": "Préparer son déjeuner", "definition": "To prepare one's lunch" },
+      { "term": "Faire la vaisselle", "definition": "To do the dishes" }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Qu’est-ce que tu as préparé pour déjeuner ?",
+    "context": "Question du jour – Cuisine et repas",
+    "passage": [
+      "Question : Qu’est-ce que tu as préparé de bon pour ton déjeuner ?",
+      "Réponse : J’ai cuisiné du porridge et des omelettes avec de la salade et du yaourt."
+    ],
+    "vocabulary": [
+      { "term": "Qu'est-ce que tu as préparé de bon ?", "definition": "What good food did you make?" },
+      { "term": "Cuisiner", "definition": "To cook" },
+      { "term": "Du porridge", "definition": "Porridge / oatmeal" },
+      { "term": "Des omelettes (f.)", "definition": "Omelets" },
+      { "term": "De la salade", "definition": "Salad" },
+      { "term": "Du yaourt", "definition": "Yogurt" }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Cuisiner tous les jours ou aller au restaurant ?",
+    "context": "Question du jour – Habitudes alimentaires",
+    "passage": [
+      "Question : Est-ce que tu aimes cuisiner tous les jours, ou est-ce que tu préfères manger au restaurant de temps en temps ?",
+      "Réponse : Je cuisine mon petit déjeuner et mon dîner tous les jours. Mais je vais aussi parfois au restaurant pour le dîner quand je n’ai pas le temps de cuisiner."
+    ],
+    "vocabulary": [
+      { "term": "Tous les jours", "definition": "Every day" },
+      { "term": "De temps en temps", "definition": "From time to time / occasionally" },
+      { "term": "Le petit déjeuner", "definition": "Breakfast" },
+      { "term": "Le dîner", "definition": "Dinner" },
+      { "term": "Parfois", "definition": "Sometimes" },
+      { "term": "Avoir le temps de (+ infinitif)", "definition": "To have time to" }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Quel genre de restaurant choisis-tu ?",
+    "context": "Question du jour – Sorties et gastronomie",
+    "passage": [
+      "Question : Quel genre de restaurant est-ce que tu choisis en général quand tu sors dîner ?",
+      "Réponse : Je préfère souvent un restaurant indien, perse ou japonais. J’aime beaucoup les plats indiens comme le biryani et bien d’autres."
+    ],
+    "vocabulary": [
+      { "term": "Quel genre de...", "definition": "What kind / type of..." },
+      { "term": "En général", "definition": "In general / usually" },
+      { "term": "Sortir dîner", "definition": "To go out for dinner" },
+      { "term": "Indien / perse / japonais", "definition": "Indian / Persian / Japanese" },
+      { "term": "Les plats (m.)", "definition": "Dishes / meals" },
+      { "term": "Et bien d'autres", "definition": "And many others" }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Que fais-tu pendant ton temps libre ?",
+    "context": "Question du jour – Loisirs et détente",
+    "passage": [
+      "Question : Qu’est-ce que tu aimes faire pendant ton temps libre pour te détendre après une longue journée ?",
+      "Réponse : Je préfère dormir pendant mon temps libre. Je cuisine aussi, je joue au cricket ou je regarde la télévision avec ma cousine. Parfois, j’analyse les états financiers des entreprises, comme le compte de résultat et le bilan, afin de comprendre la performance d’une entreprise avant d’y investir."
+    ],
+    "vocabulary": [
+      { "term": "Le temps libre", "definition": "Free time" },
+      { "term": "Se détendre", "definition": "To relax / unwind" },
+      { "term": "Jouer au cricket", "definition": "To play cricket" },
+      { "term": "Les états financiers (m.)", "definition": "Financial statements" },
+      { "term": "Le compte de résultat", "definition": "Income statement" },
+      { "term": "Le bilan", "definition": "Balance sheet" },
+      { "term": "Afin de (+ infinitif)", "definition": "In order to" },
+      { "term": "Investir (y investir)", "definition": "To invest (to invest in it)" }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Analyser les états financiers des entreprises",
+    "context": "Question du jour – Finance et apprentissage",
+    "passage": [
+      "Question : Comment est-ce que tu as appris à analyser les états financiers des entreprises ?",
+      "Réponse : Je regarde les revenus et les profits que les entreprises génèrent sur une période donnée. J’examine aussi la dette dans le bilan, ce qui nous indique si les entreprises remboursent leurs dettes à temps ou si elles émettent plus de dette pour faire fonctionner l’entreprise."
+    ],
+    "vocabulary": [
+      { "term": "Apprendre à (+ infinitif)", "definition": "To learn to" },
+      { "term": "Les revenus et les profits", "definition": "Revenue and profits" },
+      { "term": "Générer", "definition": "To generate" },
+      { "term": "Sur une période donnée", "definition": "Over a given period" },
+      { "term": "La dette", "definition": "Debt" },
+      { "term": "Rembourser ses dettes à temps", "definition": "To pay back debts on time" },
+      { "term": "Émettre de la dette", "definition": "To issue debt" },
+      { "term": "Faire fonctionner l'entreprise", "definition": "To run / operate the business" }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Comment vas-tu au travail chaque jour ?",
+    "context": "Question du jour – Transports et trajet",
+    "passage": [
+      "Question : Comment vas-tu au travail chaque jour ?",
+      "Réponse : Je prends le bus ou le SkyTrain, c’est-à-dire que j’utilise les transports en commun pour aller au travail."
+    ],
+    "vocabulary": [
+      { "term": "Chaque jour", "definition": "Every day / each day" },
+      { "term": "Prendre le bus / le train", "definition": "To take the bus / the train" },
+      { "term": "C'est-à-dire que...", "definition": "That is to say that... / meaning that..." },
+      { "term": "Les transports en commun (m.)", "definition": "Public transit / public transportation" }
     ]
   }
 ]
