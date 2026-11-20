@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Parler de sa routine quotidienne",
+    "context": "Question du jour – Conversation courante",
+    "passage": [
+      "Question : Pouvez-vous me décrire votre journée type pendant la semaine ?",
+      "Exemple de réponse :",
+      "En général, je me réveille vers 7h00 du matin. Après avoir pris mon petit-déjeuner, je prends le bus et le train pour aller au travail.",
+      "Je travaille dans la vente, où j'aide les clients à choisir un téléphone portable adapté à leurs besoins. Le soir, quand je rentre chez moi, j'aime cuisiner un bon repas, étudier le français pendant une heure et me détendre devant la télévision."
+    ],
+    "vocabulary": [
+      { "term": "Une journée type", "definition": "A typical day" },
+      { "term": "En général", "definition": "Generally / usually" },
+      { "term": "Après avoir pris...", "definition": "After having taken / had..." },
+      { "term": "Adapté à leurs besoins", "definition": "Suited to their needs" },
+      { "term": "Se détendre", "definition": "To relax / unwind" }
+    ]
+  }
+]
