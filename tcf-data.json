@@ -19,5 +19,124 @@
       { "term": "Une séance d'essai gratuite", "definition": "A free trial session" },
       { "term": "Finaliser l'inscription", "definition": "To complete / finalize registration" }
     ]
+  },
+  {
+    "id": 2,
+    "title": "Votre travail actuel et votre quotidien",
+    "context": "TCF – Expression orale (Tâche 1 / Entretien)",
+    "passage": [
+      "Question : Pouvez-vous me parler de votre travail actuel et de ce que vous aimez le plus dans votre quotidien professionnel ?",
+      "Réponse : Je travaille chez Samsung au poste de vendeur, où je vends des smartphones, des tablettes, et d’autres accessoires en fonction des besoins des clients. J’aime le plus mon travail parce que j’aime communiquer avec les gens et aider les clients à trouver le produit idéal pour leur quotidien."
+    ],
+    "vocabulary": [
+      { "term": "Un travail actuel", "definition": "A current job" },
+      { "term": "Votre quotidien professionnel", "definition": "Your daily work life" },
+      { "term": "Un poste de vendeur", "definition": "A salesperson position" },
+      { "term": "Des smartphones / des tablettes / des accessoires", "definition": "Smartphones / tablets / accessories" },
+      { "term": "Les besoins des clients", "definition": "Customers' needs" },
+      { "term": "Le produit idéal", "definition": "The ideal product" },
+      { "term": "Vendre", "definition": "To sell" },
+      { "term": "Communiquer avec les gens", "definition": "To communicate with people" },
+      { "term": "Aider à trouver", "definition": "To help find" },
+      { "term": "En fonction de", "definition": "Depending on / according to" },
+      { "term": "Ce que j'aime le plus", "definition": "What I like the most" }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Les qualités essentielles pour réussir",
+    "context": "TCF – Expression orale (Tâche 1 / Entretien)",
+    "passage": [
+      "Question : Selon vous, quelles sont les deux qualités les plus importantes pour réussir dans votre domaine ?",
+      "Réponse : Je pense que la communication et une bonne connaissance des produits jouent un rôle essentiel. Grâce à la communication, on peut établir une relation de confiance avec les clients, ce qui aide à comprendre leurs besoins. De plus, la connaissance des produits nous permet de répondre aux préoccupations des gens."
+    ],
+    "vocabulary": [
+      { "term": "Deux qualités", "definition": "Two qualities" },
+      { "term": "Votre domaine", "definition": "Your field / industry" },
+      { "term": "Une bonne connaissance des produits", "definition": "Good product knowledge" },
+      { "term": "Un rôle essentiel", "definition": "An essential role" },
+      { "term": "Une relation de confiance", "definition": "A relationship of trust" },
+      { "term": "Les préoccupations des gens", "definition": "People's concerns" },
+      { "term": "Réussir dans", "definition": "To succeed in" },
+      { "term": "Jouer un rôle", "definition": "To play a role" },
+      { "term": "Établir une relation", "definition": "To build / establish a relationship" },
+      { "term": "Répondre aux préoccupations", "definition": "To address / answer concerns" },
+      { "term": "Selon vous", "definition": "In your opinion / according to you" },
+      { "term": "Grâce à", "definition": "Thanks to" },
+      { "term": "Ce qui (+ verbe)", "definition": "Which (+ verb)" }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Organiser son temps libre et éviter le stress",
+    "context": "TCF – Expression orale (Tâche 1 / Entretien)",
+    "passage": [
+      "Question : Comment organisez-vous votre temps libre pour déconnecter du travail et éviter le stress ?",
+      "Idées de réponse : Cuisiner • Regarder la télé • Analyser les états financiers des entreprises.",
+      "Exemple développé : Pendant mon temps libre, j'aime cuisiner mes repas, regarder la télévision pour me détendre et analyser les états financiers des entreprises, ce qui me permet de complètement déconnecter du travail et d'éviter le stress."
+    ],
+    "vocabulary": [
+      { "term": "Votre temps libre", "definition": "Your free time" },
+      { "term": "Les états financiers des entreprises", "definition": "Companies' financial statements" },
+      { "term": "Déconnecter du travail", "definition": "To disconnect / unplug from work" },
+      { "term": "Éviter le stress", "definition": "To avoid stress" },
+      { "term": "Cuisiner", "definition": "To cook" },
+      { "term": "Regarder la télé", "definition": "To watch TV" },
+      { "term": "Analyser", "definition": "To analyze" }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Les avantages et inconvénients du travail à distance",
+    "context": "TCF – Expression orale (Tâche 3 / Opinion)",
+    "passage": [
+      "Question : Pensez-vous que le travail à distance est une bonne chose pour les employés et les entreprises, ou présente-t-il trop d'inconvénients ?",
+      "Réponse : À mon avis, il y a à la fois des avantages et des inconvénients. Permettre aux employés de travailler de chez eux fait gagner beaucoup de temps de trajet, et les entreprises n’ont pas besoin de grands bureaux, ce qui permet d'économiser sur le loyer. D’un autre côté, cela diminue la productivité des employés car il n’y a pas de responsable pour les superviser et ils peuvent facilement être distraits par leur environnement personnel."
+    ],
+    "vocabulary": [
+      { "term": "Le travail à distance", "definition": "Remote work / teleworking" },
+      { "term": "Les employés", "definition": "Employees" },
+      { "term": "Des avantages et des inconvénients", "definition": "Advantages and disadvantages" },
+      { "term": "Le temps de trajet", "definition": "Commute time / travel time" },
+      { "term": "De grands bureaux", "definition": "Large offices" },
+      { "term": "Le loyer", "definition": "Rent" },
+      { "term": "La productivité", "definition": "Productivity" },
+      { "term": "Un(e) responsable", "definition": "A manager / supervisor" },
+      { "term": "Leur environnement personnel", "definition": "Their personal environment" },
+      { "term": "Présenter des inconvénients", "definition": "To have / present drawbacks" },
+      { "term": "Permettre à (+ personne) de (+ infinitif)", "definition": "To allow (someone) to" },
+      { "term": "Travailler de chez eux", "definition": "To work from home" },
+      { "term": "Faire gagner du temps", "definition": "To save time" },
+      { "term": "Avoir besoin de", "definition": "To need" },
+      { "term": "Économiser sur", "definition": "To save money on" },
+      { "term": "Diminuer", "definition": "To decrease / lower" },
+      { "term": "Superviser", "definition": "To supervise" },
+      { "term": "Être distrait(e) par", "definition": "To be distracted by" },
+      { "term": "À la fois ... et ...", "definition": "Both ... and ..." },
+      { "term": "D'un autre côté", "definition": "On the other hand" }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "L'impact de l'intelligence artificielle sur le travail",
+    "context": "TCF – Expression orale (Tâche 3 / Opinion)",
+    "passage": [
+      "Question : Croyez-vous que l'intelligence artificielle va remplacer beaucoup d'emplois ou simplement transformer notre façon de travailler ?",
+      "Réponse : Je pense que l’intelligence artificielle va surtout transformer notre façon de travailler plutôt que remplacer tous les emplois. Elle permet d'automatiser les tâches répétitives, ce qui laisse plus de temps aux humains pour se concentrer sur la créativité et le contact avec les clients."
+    ],
+    "vocabulary": [
+      { "term": "L'intelligence artificielle", "definition": "Artificial intelligence" },
+      { "term": "Des emplois", "definition": "Jobs" },
+      { "term": "Notre façon de travailler", "definition": "Our way of working" },
+      { "term": "Les tâches répétitives", "definition": "Repetitive tasks" },
+      { "term": "La créativité", "definition": "Creativity" },
+      { "term": "Le contact avec les clients", "definition": "Customer contact / interaction" },
+      { "term": "Transformer", "definition": "To transform" },
+      { "term": "Automatiser", "definition": "To automate" },
+      { "term": "Laisser plus de temps", "definition": "To leave more time" },
+      { "term": "Se concentrer sur", "definition": "To focus on" },
+      { "term": "Surtout", "definition": "Especially / mainly" },
+      { "term": "Plutôt que", "definition": "Rather than" }
+    ]
   }
 ]
