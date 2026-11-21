@@ -117,5 +117,127 @@
       { "term": "Surtout", "definition": "Especially / mainly" },
       { "term": "Plutôt que", "definition": "Rather than" }
     ]
+  },
+  {
+    "id": 6,
+    "title": "Vos appareils numériques indispensables",
+    "context": "TCF – Expression orale (Tâche 1 / Technologie)",
+    "passage": [
+      "Question : Quels appareils numériques utilisez-vous le plus au quotidien et duquel auriez-vous le plus de mal à vous passer ?",
+      "Réponse : J’utilise plusieurs appareils numériques comme le téléphone et l’ordinateur portable, mais je dépends surtout de mon téléphone car c'est un outil tout-en-un qui me permet de rester connecté, de gérer mes tâches et de me divertir n'importe où.",
+      "C’est donc l'appareil dont j'aurais le plus de mal à me passer, car il centralise toute ma vie quotidienne et me sert à la fois de moyen de communication, de GPS et d'agenda."
+    ],
+    "vocabulary": [
+      { "term": "Des appareils numériques", "definition": "Digital devices" },
+      { "term": "Un ordinateur portable", "definition": "A laptop" },
+      { "term": "Un outil tout-en-un", "definition": "An all-in-one tool" },
+      { "term": "Mes tâches", "definition": "My tasks" },
+      { "term": "Ma vie quotidienne", "definition": "My daily life" },
+      { "term": "Un moyen de communication", "definition": "A means of communication" },
+      { "term": "Un agenda", "definition": "A planner / calendar" },
+      { "term": "Dépendre de", "definition": "To depend on" },
+      { "term": "Rester connecté(e)", "definition": "To stay connected" },
+      { "term": "Gérer", "definition": "To manage" },
+      { "term": "Se divertir", "definition": "To entertain oneself / have fun" },
+      { "term": "Avoir du mal à se passer de", "definition": "To have a hard time doing without" },
+      { "term": "Centraliser", "definition": "To centralize" },
+      { "term": "Servir de", "definition": "To serve as" },
+      { "term": "Surtout", "definition": "Especially / mainly" },
+      { "term": "N'importe où", "definition": "Anywhere" },
+      { "term": "À la fois ... et ...", "definition": "Both ... and ..." }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Acheter des appareils : en ligne ou en magasin ?",
+    "context": "TCF – Expression orale (Tâche 1 / Habitudes d'achat)",
+    "passage": [
+      "Question : Comment choisissez-vous où acheter vos appareils électroniques : en ligne ou en magasin ?",
+      "Réponse : Ça dépend surtout des promotions. En général, je compare les prix et j’achète là où c’est le moins cher, même si j’aime bien aller en boutique physique pour tester l'appareil avant de me décider."
+    ],
+    "vocabulary": [
+      { "term": "Des promotions", "definition": "Sales / promotions / deals" },
+      { "term": "Une boutique physique", "definition": "A brick-and-mortar / physical store" },
+      { "term": "Comparer les prix", "definition": "To compare prices" },
+      { "term": "Se décider", "definition": "To make up one's mind / decide" },
+      { "term": "En général", "definition": "In general" },
+      { "term": "Là où", "definition": "Where / wherever" },
+      { "term": "Le moins cher", "definition": "The cheapest" },
+      { "term": "Tout dépend de / Ça dépend de", "definition": "It depends on" }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "L'utilisation des réseaux sociaux et la gestion du temps",
+    "context": "TCF – Expression orale (Tâche 1 / Réseaux sociaux)",
+    "passage": [
+      "Question : Quelle place occupent les réseaux sociaux dans votre vie et comment gérez-vous le temps que vous y passez ?",
+      "Réponse : Les réseaux sociaux jouent un rôle essentiel car ils nous connectent avec le monde entier. On peut communiquer, partager des opinions et passer un bon moment, où que l'on soit dans le monde. Mais si on ne les utilise pas intelligemment (ou avec modération), on peut perdre beaucoup de temps sur des applications comme Facebook et Instagram, car elles sont très addictives.",
+      "Je gère mon temps en fixant des limites quotidiennes sur mon téléphone et en désactivant les notifications pour éviter les distractions."
+    ],
+    "vocabulary": [
+      { "term": "Les réseaux sociaux", "definition": "Social media" },
+      { "term": "Un rôle essentiel", "definition": "An essential role" },
+      { "term": "Le monde entier", "definition": "The whole world" },
+      { "term": "Des limites quotidiennes", "definition": "Daily limits" },
+      { "term": "Les notifications", "definition": "Notifications" },
+      { "term": "Les distractions", "definition": "Distractions" },
+      { "term": "Fixer des limites", "definition": "To set limits" },
+      { "term": "Désactiver", "definition": "To turn off / disable" },
+      { "term": "Éviter", "definition": "To avoid" },
+      { "term": "Où que l'on soit", "definition": "Wherever one is / wherever we are" },
+      { "term": "Avec modération", "definition": "In moderation" },
+      { "term": "Addictif / addictive", "definition": "Addictive" }
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Le téléphone portable à l'école : interdire ou éduquer ?",
+    "context": "TCF – Expression orale (Tâche 3 / Opinion)",
+    "passage": [
+      "Question : Faut-il interdire complètement le téléphone portable à l'école ou apprendre aux jeunes à bien l'utiliser ?",
+      "Réponse : À mon avis, il vaut mieux apprendre aux jeunes à utiliser leur téléphone de manière responsable plutôt que de l’interdire complètement, car la technologie fait déjà partie de notre quotidien. Bien utilisé, le smartphone peut être un excellent outil pédagogique pour faire des recherches rapides ou utiliser des applications éducatives en classe."
+    ],
+    "vocabulary": [
+      { "term": "Un outil pédagogique", "definition": "An educational / teaching tool" },
+      { "term": "Des recherches rapides", "definition": "Quick searches / research" },
+      { "term": "Des applications éducatives", "definition": "Educational apps" },
+      { "term": "Il vaut mieux (+ infinitif)", "definition": "It is better to" },
+      { "term": "Apprendre à (+ personne) à (+ infinitif)", "definition": "To teach (someone) to" },
+      { "term": "Interdire", "definition": "To ban / prohibit" },
+      { "term": "Faire partie de", "definition": "To be part of" },
+      { "term": "De manière responsable", "definition": "Responsibly" },
+      { "term": "Plutôt que de (+ infinitif)", "definition": "Rather than" },
+      { "term": "Bien utilisé(e)", "definition": "Used properly / well used" },
+      { "term": "En classe", "definition": "In class / in the classroom" }
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Les nouvelles technologies : rapprochement ou isolement ?",
+    "context": "TCF – Expression orale (Tâche 3 / Opinion)",
+    "passage": [
+      "Question : Pensez-vous que les nouvelles technologies rapprochent les gens ou qu'elles nous isolent dans la vie réelle ?",
+      "Réponse : À mon avis, les nouvelles technologies ont un double effet : elles nous rapprochent à distance, mais elles peuvent aussi nous isoler dans la vie réelle. D'un côté, grâce aux appels vidéo et aux réseaux sociaux, il est devenu très facile de garder le contact avec sa famille et ses amis, même s'ils vivent à l'autre bout du monde. D'un autre côté, on remarque souvent que les gens préfèrent regarder leur écran plutôt que de parler aux personnes assises juste à côté d'eux, par exemple au restaurant ou en famille.",
+      "En conclusion, je pense que tout dépend de notre façon de les utiliser : la technologie doit rester un moyen de compléter nos relations réelles, et non de les remplacer."
+    ],
+    "vocabulary": [
+      { "term": "Les nouvelles technologies", "definition": "New technologies" },
+      { "term": "Un double effet", "definition": "A double effect / two-sided impact" },
+      { "term": "La vie réelle", "definition": "Real life" },
+      { "term": "Les appels vidéo", "definition": "Video calls" },
+      { "term": "Le contact", "definition": "Contact / touch" },
+      { "term": "L'autre bout du monde", "definition": "The other side of the world" },
+      { "term": "Un écran", "definition": "A screen" },
+      { "term": "Notre façon de les utiliser", "definition": "Our way of using them" },
+      { "term": "Nos relations réelles", "definition": "Our real-life relationships" },
+      { "term": "Rapprocher", "definition": "To bring closer together" },
+      { "term": "À distance", "definition": "From a distance / remotely" },
+      { "term": "D'un côté ... D'un autre côté", "definition": "On one hand ... On the other hand" },
+      { "term": "Grâce à", "definition": "Thanks to" },
+      { "term": "Assis(es) juste à côté de", "definition": "Sitting right next to" },
+      { "term": "En conclusion", "definition": "In conclusion" },
+      { "term": "Tout dépend de", "definition": "Everything depends on" }
+    ]
   }
 ]
