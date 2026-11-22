@@ -239,5 +239,163 @@
       { "term": "En conclusion", "definition": "In conclusion" },
       { "term": "Tout dépend de", "definition": "Everything depends on" }
     ]
+  },
+  {
+    "id": 11,
+    "title": "Vos moyens de transport pour les déplacements quotidiens",
+    "context": "TCF – Expression orale (Tâche 1 / Transports)",
+    "passage": [
+      "Question : Quels moyens de transport utilisez-vous le plus souvent pour vos déplacements quotidiens et pourquoi avez-vous choisi ce mode de déplacement ?",
+      "Réponse : J’utilise le plus souvent les transports en commun pour aller à la salle de sport, au supermarché et pour mes déplacements quotidiens, parce que ça me permet d’économiser de l’argent. De plus, j’ai le temps de lire un livre au lieu de rester bloqué dans la circulation, et c’est aussi beaucoup mieux pour l’environnement."
+    ],
+    "vocabulary": [
+      { "term": "Les moyens de transport / un mode de déplacement", "definition": "Means of transport / mode of travel" },
+      { "term": "Vos déplacements quotidiens", "definition": "Your daily commutes / trips" },
+      { "term": "Les transports en commun", "definition": "Public transit / public transportation" },
+      { "term": "La salle de sport", "definition": "The gym" },
+      { "term": "La circulation", "definition": "Traffic" },
+      { "term": "L'environnement", "definition": "The environment" },
+      { "term": "Économiser de l'argent", "definition": "To save money" },
+      { "term": "Rester bloqué(e) dans", "definition": "To get stuck in" },
+      { "term": "Le plus souvent", "definition": "Most often" },
+      { "term": "Au lieu de (+ infinitif)", "definition": "Instead of" }
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Vos gestes quotidiens pour protéger l'environnement",
+    "context": "TCF – Expression orale (Tâche 1 / Écologie)",
+    "passage": [
+      "Question : Quelles actions concrètes faites-vous chez vous ou dans votre vie de tous les jours pour protéger l'environnement et réduire vos déchets ?",
+      "Réponse : D'abord, je fais le tri sélectif très attentivement à la maison, en séparant le plastique, le papier, le verre et les déchets organiques pour le compost. J'ai aussi remplacé les bouteilles en plastique par une gourde réutilisable que j'emporte partout avec moi. De plus, j'essaie de limiter le gaspillage alimentaire en cuisinant uniquement ce dont j'ai besoin, et je privilégie les transports en commun plutôt que la voiture.",
+      "Ce sont de petits gestes, mais je suis convaincu que si tout le monde fait cet effort, cela peut avoir un réel impact sur la planète."
+    ],
+    "vocabulary": [
+      { "term": "Des actions concrètes", "definition": "Concrete actions" },
+      { "term": "Votre vie de tous les jours", "definition": "Your everyday life" },
+      { "term": "Vos déchets", "definition": "Your waste / trash" },
+      { "term": "Le tri sélectif", "definition": "Recycling / waste sorting" },
+      { "term": "Le verre", "definition": "Glass" },
+      { "term": "Les déchets organiques", "definition": "Organic waste" },
+      { "term": "Le compost", "definition": "Compost" },
+      { "term": "Les bouteilles en plastique", "definition": "Plastic bottles" },
+      { "term": "Une gourde réutilisable", "definition": "A reusable water bottle" },
+      { "term": "Le gaspillage alimentaire", "definition": "Food waste" },
+      { "term": "De petits gestes", "definition": "Small gestures / actions" },
+      { "term": "Un réel impact", "definition": "A real impact" },
+      { "term": "Protéger", "definition": "To protect" },
+      { "term": "Réduire", "definition": "To reduce" },
+      { "term": "Faire le tri sélectif", "definition": "To sort waste / recycle" },
+      { "term": "Séparer", "definition": "To separate" },
+      { "term": "Remplacer (+ nom) par (+ nom)", "definition": "To replace (something) with (something)" },
+      { "term": "Emporter", "definition": "To carry / take along" },
+      { "term": "Limiter", "definition": "To limit" },
+      { "term": "Privilégier", "definition": "To prioritize / favor" },
+      { "term": "Très attentivement", "definition": "Very carefully" },
+      { "term": "Uniquement", "definition": "Only" },
+      { "term": "Ce dont j'ai besoin", "definition": "What I need" },
+      { "term": "Plutôt que", "definition": "Rather than" },
+      { "term": "Convaincu(e)", "definition": "Convinced" }
+    ]
+  },
+  {
+    "id": 13,
+    "title": "Encourager l'usage des transports en commun et du vélo",
+    "context": "TCF – Expression orale (Tâche 3 / Villes et mobilité)",
+    "passage": [
+      "Question : Selon vous, que devraient faire les grandes villes pour encourager les habitants à laisser leur voiture au garage et à prendre davantage les transports en commun ou le vélo ?",
+      "Réponse : À mon avis, pour encourager les habitants à abandonner leur voiture, les grandes villes devraient rendre les alternatives plus pratiques, plus rapides et moins chères. D’abord, il faudrait augmenter la fréquence et la ponctualité des bus et des métros, surtout aux heures de pointe, afin que les usagers ne perdent pas de temps.",
+      "Ensuite, elles pourraient réduire le prix des abonnements, voire offrir la gratuité le week-end ou pour les étudiants, ce qui rendrait les transports beaucoup plus attractifs que la voiture."
+    ],
+    "vocabulary": [
+      { "term": "Les habitants", "definition": "Residents / inhabitants" },
+      { "term": "Les alternatives", "definition": "Alternatives" },
+      { "term": "La fréquence", "definition": "Frequency" },
+      { "term": "La ponctualité", "definition": "Punctuality" },
+      { "term": "Les heures de pointe", "definition": "Rush hour / peak hours" },
+      { "term": "Les usagers", "definition": "Commuters / transit users" },
+      { "term": "Le prix des abonnements", "definition": "The price of transit passes / subscriptions" },
+      { "term": "La gratuité", "definition": "Free access / free service" },
+      { "term": "Encourager à (+ infinitif)", "definition": "To encourage to" },
+      { "term": "Laisser sa voiture au garage", "definition": "To leave one's car in the garage / at home" },
+      { "term": "Abandonner", "definition": "To give up / abandon" },
+      { "term": "Rendre (+ adjectif)", "definition": "To make (+ adjective)" },
+      { "term": "Augmenter", "definition": "To increase" },
+      { "term": "Perdre du temps", "definition": "To waste time" },
+      { "term": "Offrir", "definition": "To offer" },
+      { "term": "Davantage", "definition": "More" },
+      { "term": "Afin que (+ subjonctif)", "definition": "So that / in order that" },
+      { "term": "Voire", "definition": "Even / indeed" },
+      { "term": "Attractif / attractive", "definition": "Attractive / appealing" }
+    ]
+  },
+  {
+    "id": 14,
+    "title": "Faut-il interdire les voitures polluantes en centre-ville ?",
+    "context": "TCF – Expression orale (Tâche 3 / Opinion)",
+    "passage": [
+      "Question : Êtes-vous favorable à l'interdiction totale des voitures polluantes dans le centre des grandes villes, même si cela complique la vie des commerçants et des habitants de banlieue ?",
+      "Réponse : À mon avis, je suis favorable à la réduction des voitures polluantes en centre-ville, mais pas à une interdiction totale, car cela poserait trop de problèmes aux habitants de banlieue et aux commerçants.",
+      "D’un côté, il est vrai qu’il faut absolument améliorer la qualité de l'air et réduire le bruit dans les grandes villes. Moins de voitures, c’est meilleur pour la santé des habitants et cela rend le centre-ville beaucoup plus agréable pour les piétons et les cyclistes.",
+      "D’un autre côté, il faut rester réaliste : beaucoup de personnes qui habitent en banlieue n'ont pas d'autre choix que de prendre leur voiture pour venir travailler, parce que les transports en commun ne sont pas toujours suffisants."
+    ],
+    "vocabulary": [
+      { "term": "Une interdiction totale", "definition": "A total ban" },
+      { "term": "Les voitures polluantes", "definition": "Polluting cars" },
+      { "term": "Le centre-ville / le centre des grandes villes", "definition": "City center / downtown" },
+      { "term": "Les commerçants", "definition": "Shopkeepers / local merchants" },
+      { "term": "Les habitants de banlieue", "definition": "Suburban residents" },
+      { "term": "La qualité de l'air", "definition": "Air quality" },
+      { "term": "Le bruit", "definition": "Noise" },
+      { "term": "Les piétons", "definition": "Pedestrians" },
+      { "term": "Les cyclistes", "definition": "Cyclists" },
+      { "term": "Compliquer la vie de", "definition": "To complicate life for" },
+      { "term": "Être favorable à", "definition": "To be in favor of / support" },
+      { "term": "Poser des problèmes", "definition": "To cause / pose problems" },
+      { "term": "Améliorer", "definition": "To improve" },
+      { "term": "Rester réaliste", "definition": "To remain realistic" },
+      { "term": "N'avoir pas d'autre choix que de (+ infinitif)", "definition": "To have no other choice than to" },
+      { "term": "Absolument", "definition": "Absolutely" },
+      { "term": "Agréable", "definition": "Pleasant" },
+      { "term": "Suffisant(e)", "definition": "Sufficient / enough" }
+    ]
+  },
+  {
+    "id": 15,
+    "title": "Protection de l'environnement : citoyens ou gouvernements ?",
+    "context": "TCF – Expression orale (Tâche 3 / Opinion)",
+    "passage": [
+      "Question : Pensez-vous que ce sont surtout les citoyens qui doivent changer leur mode de vie pour sauver la planète, ou est-ce avant tout aux gouvernements et aux grandes entreprises d'agir ?",
+      "Réponse : À mon avis, la protection de l’environnement est une responsabilité partagée. Les gestes quotidiens des citoyens sont importants : quand chacun trie ses déchets, limite sa consommation d'énergie ou privilégie les transports en commun, cela envoie un message fort et crée une prise de conscience collective.",
+      "D’un autre côté, les efforts individuels restent limités si le système ne change pas. Les grandes industries sont responsables de la majorité des émissions polluantes, et seul l'État peut adopter des lois strictes, taxer les activités polluantes et investir massivement dans les énergies renouvelables ou les transports propres."
+    ],
+    "vocabulary": [
+      { "term": "Leur mode de vie", "definition": "Their lifestyle / way of life" },
+      { "term": "Les grandes entreprises", "definition": "Large companies / corporations" },
+      { "term": "La protection de l'environnement", "definition": "Environmental protection" },
+      { "term": "Une responsabilité partagée", "definition": "A shared responsibility" },
+      { "term": "Sa consommation d'énergie", "definition": "One's energy consumption" },
+      { "term": "Une prise de conscience collective", "definition": "Collective awareness" },
+      { "term": "Les efforts individuels", "definition": "Individual efforts" },
+      { "term": "Les grandes industries", "definition": "Major industries" },
+      { "term": "La majorité des émissions polluantes", "definition": "The majority of polluting emissions" },
+      { "term": "L'État", "definition": "The State / government" },
+      { "term": "Des lois strictes", "definition": "Strict laws" },
+      { "term": "Les activités polluantes", "definition": "Polluting activities" },
+      { "term": "Les énergies renouvelables", "definition": "Renewable energy" },
+      { "term": "Les transports propres", "definition": "Clean transportation" },
+      { "term": "Sauver", "definition": "To save" },
+      { "term": "Agir", "definition": "To act / take action" },
+      { "term": "Trier ses déchets", "definition": "To sort one's trash / recycle" },
+      { "term": "Envoyer un message fort", "definition": "To send a strong message" },
+      { "term": "Créer", "definition": "To create" },
+      { "term": "Être responsable de", "definition": "To be responsible for" },
+      { "term": "Adopter des lois", "definition": "To pass / adopt laws" },
+      { "term": "Taxer", "definition": "To tax" },
+      { "term": "Investir massivement dans", "definition": "To invest heavily in" },
+      { "term": "Avant tout", "definition": "Above all / first and foremost" },
+      { "term": "Chacun", "definition": "Everyone / each person" },
+      { "term": "Seul(e)", "definition": "Alone / only" }
+    ]
   }
 ]
